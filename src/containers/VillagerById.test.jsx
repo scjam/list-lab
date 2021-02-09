@@ -1,10 +1,15 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import VillagerByName from './VillagerByName';
+import VillagerById from './VillagerById';
+import { BrowserRouter } from 'react-router-dom';
 
-describe('VillagerByName container', () => {
+describe('VillagerById container', () => {
   it('displays information about a villager', async() => {
-    render(<VillagerByName match={{ params: { name: 'Admiral' } }}/>);
+    render(
+      <BrowserRouter>
+        <VillagerById match={{ params: { _id: '5f5fb4bbbfd05c2aed82e460' } }}/>
+      </BrowserRouter>
+    );
 
     screen.getByText('Loading');
 

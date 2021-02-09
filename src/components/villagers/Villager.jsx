@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Villager = ({ _id, name, image, quote, birthday }) => (
+const Villager = ({ name, image, quote, birthday }) => (
   <figure>
-    <img src={image} alt={name} id={_id} />
+    <img src={image} alt={name} />
     <figcaption>
       <p>{name}</p>
       <p>{quote}</p>
@@ -17,7 +17,6 @@ Villager.propTypes = {
   name: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,
   birthday: PropTypes.string.isRequired,
-  _id: PropTypes.string.isRequired
 };
 
 export default Villager;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { findVillagerByName } from '../services/animalCrossingApi';
+import { findVillagerById } from '../services/animalCrossingApi';
 import VillagerList from '../components/villagers/VillagerList';
 
-export default class VillagerByName extends Component {
+export default class VillagerById extends Component {
   static propTypes = {
     match: PropTypes.shape({
       params: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
   };
@@ -20,7 +20,7 @@ export default class VillagerByName extends Component {
   async componentDidMount() {
     const { match } = this.props;
 
-    const villagers = await findVillagerByName(match.params.name);
+    const villagers = await findVillagerById(match.params._id);
     this.setState({ loading: false, villagers });
   }
 

@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Villager from './Villager';
+import { Link } from 'react-router-dom';
 
 const VillagerList = ({ villagers }) => {
   const villagerElements = villagers.map((villager) => (
     <li key={villager._id}>
-      <Villager 
-        image={villager.image}
-        name={villager.name}
-        quote={villager.quote}
-        birthday={villager.birthday}
-      />
+      <Link to={`/${villager._id}`}>
+        <Villager {...villager} />
+      </Link>
     </li>
   ));
 
