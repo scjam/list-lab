@@ -4,7 +4,7 @@ import Villager from './Villager';
 
 const VillagerList = ({ villagers }) => {
   const villagerElements = villagers.map((villager) => (
-    <li key={villager.name}>
+    <li key={villager._id}>
       <Villager 
         image={villager.image}
         name={villager.name}
@@ -23,7 +23,8 @@ VillagerList.propTypes = {
       image: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       quote: PropTypes.string.isRequired,
-      birthday: PropTypes.string.isRequired
+      birthday: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired
     })
   ).isRequired
 };
