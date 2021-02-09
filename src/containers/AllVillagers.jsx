@@ -22,7 +22,7 @@ export default class AllVillagers extends Component {
 
     return (
       <div>
-        {villagers}
+        <p>villagers</p>
       </div>
     );
   }
