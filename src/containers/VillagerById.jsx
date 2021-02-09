@@ -1,33 +1,21 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
+import Villager from '../components/villagers/Villager';
 import { findVillagerById } from '../services/animalCrossingApi';
-import VillagerList from '../components/villagers/VillagerList';
 
-export default class VillagerById extends Component {
-  static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-  };
+const VillagerById = ({ match }) => {
+  const [loading, setLoading] = useState(true);
+  const [villager, setVillager] = useState([]);
 
-  state = {
-    loading: true,
-    villagers: []
-  };
+  useEffect(() => {
+    findVillagerById(match.params._id).then((villager) => {
+      setVillager(villager);
+      setLoading(false);
+    });
+  }, []);
 
-  async componentDidMount() {
-    const { match } = this.props;
+  if(loading) return <h1>Loading</h1>;
+  return <Villager {...villager} />;
+};
 
-    const villagers = await findVillagerById(match.params._id);
-    this.setState({ loading: false, villagers });
-  }
-
-  render() {
-    const { loading, villagers } = this.state;
-    if(loading) return <h1>Loading</h1>;
-
-    return <VillagerList villagers={villagers} />;
-  }
-}
+export default VillagerById;
