@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VillagerList from '../components/villagers/VillagerList';
 import { findVillagers } from '../services/animalCrossingApi';
 
 export default class AllVillagers extends Component {
@@ -20,10 +21,6 @@ export default class AllVillagers extends Component {
 
     if(loading) return <h1>Loading</h1>;
 
-    return (
-      <div>
-        <p>villagers</p>
-      </div>
-    );
+    return <VillagerList villagers={villagers} />;
   }
 }

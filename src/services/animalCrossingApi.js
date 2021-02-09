@@ -2,8 +2,7 @@ export const findVillagers = () => {
   return fetch('https://ac-vill.herokuapp.com/villagers')
     .then((res) => res.json())
     .then((villagers) => 
-      villagers.map(({ _id, name, image, quote, birthday }) => ({
-        _id,
+      villagers.map(({ name, image, quote, birthday }) => ({
         name,
         image,
         birthday,
@@ -12,12 +11,11 @@ export const findVillagers = () => {
     );
 };
 
-export const findVillagerById = (_id) => {
-  return fetch(`https://ac-vill.herokuapp.com/villagers/${_id}`)
+export const findVillagerByName = (name) => {
+  return fetch(`https://ac-vill.herokuapp.com/villagers/${name}`)
     .then((res) => res.jason())
     .then((villagers) =>
-      villagers.map(({ _id, name, image, quote, birthday }) => ({
-        _id,
+      villagers.map(({ name, image, quote, birthday }) => ({
         name,
         image,
         birthday,

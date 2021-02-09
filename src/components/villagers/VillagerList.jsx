@@ -4,7 +4,7 @@ import Villager from './Villager';
 
 const VillagerList = ({ villagers }) => {
   const villagerElements = villagers.map((villager) => (
-    <li key={villager._id}>
+    <li key={villager.name}>
       <Villager 
         image={villager.image}
         name={villager.name}
