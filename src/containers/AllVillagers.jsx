@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import VillagerList from '../components/villagers/VillagerList';
 import { findVillagers } from '../services/animalCrossingApi';
 
-export default class AllVillagers extends Component {
-  state = {
-    loading: true,
-    villagers: []
-  };
+const AllVillagers = () => {
+  const [loading, setLoading] = useState(true);
+  const [villagers, setVillagers] = useState([]);
 
-  async componentDidMount() {
-    const villagers = await findVillagers();
-    this.setState({
-      loading: false,
-      villagers,
+  useEffect(() => {
+    findVillagers().then((villagers) => {
+      setVillagers(villagers);
+      setLoading(false);
     });
-  }
-  
-  render() {
-    const { loading, villagers } = this.state;
+  }, []);
 
-    if(loading) return <h1>Loading</h1>;
+  if(loading) return <h1>Loading</h1>;
+  return <VillagerList villagers={villagers} />;
+};
 
-    return <VillagerList villagers={villagers} />;
-  }
-}
+export default AllVillagers;
