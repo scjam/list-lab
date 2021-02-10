@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Loading from '../components/loading/Loading';
 import VillagerList from '../components/villagers/VillagerList';
-import { findVillagers } from '../services/animalCrossingApi';
+import { useVillagers } from '../hooks/villagers';
 
 const AllVillagers = () => {
-  const [loading, setLoading] = useState(true);
-  const [villagers, setVillagers] = useState([]);
+  const { loading, villagers } = useVillagers();
 
-  useEffect(() => {
-    findVillagers().then((villagers) => {
-      setVillagers(villagers);
-      setLoading(false);
-    });
-  }, []);
-
-  if(loading) return <h1>Loading</h1>;
+  if(loading) return <Loading />;
   return <VillagerList villagers={villagers} />;
 };
 
