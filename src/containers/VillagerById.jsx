@@ -1,21 +1,22 @@
-/* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Villager from '../components/villagers/Villager';
-import { findVillagerById } from '../services/animalCrossingApi';
+import Loading from '../components/loading/Loading';
+import { useVillagerById } from '../hooks/villagers';
 
 const VillagerById = ({ match }) => {
-  const [loading, setLoading] = useState(true);
-  const [villager, setVillager] = useState([]);
+  const { loading, villager } = useVillagerById(match.params._id);
 
-  useEffect(() => {
-    findVillagerById(match.params._id).then((villager) => {
-      setVillager(villager);
-      setLoading(false);
-    });
-  }, []);
-
-  if(loading) return <h1>Loading</h1>;
+  if(loading) return <Loading />;
   return <Villager {...villager} />;
+};
+
+VillagerById.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      _id: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 export default VillagerById;

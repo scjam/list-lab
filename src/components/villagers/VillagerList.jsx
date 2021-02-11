@@ -7,7 +7,7 @@ const VillagerList = ({ villagers }) => {
   const villagerElements = villagers.map((villager) => (
     <li key={villager._id}>
       <Link to={`/${villager._id}`}>
-        <Villager {...villager} />
+        <Villager image={villager.image} name={villager.name} />
       </Link>
     </li>
   ));
@@ -18,11 +18,11 @@ const VillagerList = ({ villagers }) => {
 VillagerList.propTypes = {
   villagers: PropTypes.arrayOf(
     PropTypes.shape({
+      _id: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       quote: PropTypes.string.isRequired,
       birthday: PropTypes.string.isRequired,
-      _id: PropTypes.string.isRequired
     })
   ).isRequired
 };

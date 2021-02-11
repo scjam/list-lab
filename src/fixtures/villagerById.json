@@ -1,0 +1,26 @@
+{
+  "_id": "5f5fb4bbbfd05c2aed82e465",
+  "url": "https://animalcrossing.fandom.com/wiki/Alice",
+  "name": "Alice",
+  "japaneseName": "メルボルン Meruborun",
+  "image": "https://vignette.wikia.nocookie.net/animalcrossing/images/e/e1/Alice_NH.png/revision/latest?cb=20200803181400",
+  "quote": "Treat others as you would like to be treated.",
+  "gender": "female",
+  "personality": "normal",
+  "species": "koala",
+  "birthday": "August 19th (Leo)",
+  "phrase": "guvnor",
+  "skill": "Photography",
+  "goal": "Stylist",
+  "coffee": {
+  "roast": "Mocha",
+  "milk": "No milk",
+  "sugar": "No sugar"
+  },
+  "song": {
+  "name": "Aloha K.K.",
+  "link": "https://animalcrossing.fandom.com/wiki/Aloha_K.K."
+  },
+  "style": "Cute",
+  "__v": 0
+}

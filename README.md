@@ -6,7 +6,7 @@ Get a list of things from an API and display them.
 
 - [Animal Crossing](https://github.com/yaycub/acnh-villager-api)
 
-## Requirements
+## Requirements Part 1
 
 ### List Page
 
@@ -33,3 +33,24 @@ You should display a loading screen while fetching from the API.
 - Router setup 4 pts
 - List Page: 3 pts
 - Detail Page 3 pts
+
+## Requirements Part 2
+
+### List Page
+
+Display a list of things on the home page of your application
+
+### Header
+
+Create a header that allows a user toggle themes from light to dark theme.
+
+## Testing
+
+- Snapshot testing
+
+## Rubric
+
+- List Page: 2 pts
+- Header 4 pts
+- Context Provider 4 pts
+- paging 2 extra pts
